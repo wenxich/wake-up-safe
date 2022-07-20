@@ -9,10 +9,6 @@ import { SelectField,TextField } from '@aws-amplify/ui-react';
 Amplify.configure(awsExports);
 const logger = new Logger('WUS_log','DEBUG');
 
-async function getUserInfo() {
-  const user = await Auth.currentAuthenticatedUser();
-  console.log('attributes:', user.attributes);
-}
 
 export default function App() {
   const [username,setUsername] = useState("");
@@ -26,17 +22,6 @@ export default function App() {
     Auth.currentAuthenticatedUser().then((data) => {
       setUserID(data.attributes.role);
   });});
-  const services = {
-    async handleSignUp(formData){
-      let {username, password, attributes} = formData;
-      return Auth.signUp({
-        username,
-        password,
-        attributes,
-      });
-    },
-  }
-
   const funcc = async () => {
     let user = await Auth.currentAuthenticatedUser();
     logger.info('user name = ', user)
@@ -44,7 +29,7 @@ export default function App() {
     setUsername(username)
     if (user){
       logger.info('Redirect to CHOP WUS page');
-      //window.location = "http://localhost:3000/?userID="+userID+"&username="+username+"&role="+role;
+      window.location = "http://localhost:3000/?userID="+userID+"&username="+username+"&role="+role;
     }
   }
   funcc()
@@ -52,8 +37,6 @@ export default function App() {
     <Authenticator
       // Default to Sign Up screen
       initialState="signUp"
-
-      services={services}
       // Customize `Authenticator.SignUp.FormFields`
       components={{
         SignUp: {
