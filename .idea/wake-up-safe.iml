@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/amplify/backend/auth/customizeamplifyapp1c532687f/build" />
+      <excludeFolder url="file://$MODULE_DIR$/amplify/backend/awscloudformation/build" />
+      <excludeFolder url="file://$MODULE_DIR$/amplify/#current-cloud-backend" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/amplify/backend/awscloudformation" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
