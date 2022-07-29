@@ -37,7 +37,7 @@ export default function App() {
     const services = {
         async handleSignUp(formData) {
             let {username, password, attributes} = formData;
-            console.log('attributes:', attributes);
+            await getUserInfo()
             return Auth.signUp({
                 username,
                 password,
