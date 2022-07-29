@@ -18,12 +18,6 @@ export default function App() {
     const [username, setUsername] = useState("");
     const [userID, setUserID] = useState("");
 
-    //create setRole function
-    const [role, setRole] = useState("");
-
-    //create setInstitution function (option value for institution)
-    const [institution, setInstitution] = React.useState('');
-
     useEffect(() => {
         Auth.currentAuthenticatedUser().then((data) => {
             setUserID(data.attributes.sub);
@@ -55,10 +49,6 @@ export default function App() {
             logger.info('Redirect to CHOP WUS page');
             //window.location = "http://localhost:3000/?userID="+userID+"&username="+username+"&role="+role;
         }
-        await Auth.updateUserAttributes(user, {
-            'custom:institution': {institution},
-            'custom:role': {role}
-        })
     }
     funcc();
     return (
@@ -83,14 +73,14 @@ export default function App() {
                                     errorMessage={validationErrors.lname}
                                     hasError={!!validationErrors.lname}
                                     key="lastname"
-                                    name="lastname"
+                                    name="family name"
                                     label='Last name'/>
                                 <TextField
                                     isRequired="true"
                                     errorMessage={validationErrors.fname}
                                     hasError={!!validationErrors.fname}
                                     key="firstname"
-                                    name="firstname"
+                                    name="name"
                                     label='First Name'
                                 />
 
@@ -101,12 +91,8 @@ export default function App() {
                                     errorMessage={validationErrors.institution}
                                     hasError={!!validationErrors.institution}
                                     key='institution'
-                                    name='institution'
+                                    name='custom:institution'
                                     placeholder="Institution"
-
-                                    //set value on change
-                                    value={institution}
-                                    onChange={(e) => setInstitution(e.target.value)}
 
                                     label='Select your institution.'
 
@@ -159,11 +145,8 @@ export default function App() {
                                     errorMessage={validationErrors.role}
                                     hasError={!!validationErrors.role}
                                     key='role'
-                                    name='role'
+                                    name='custom:role'
                                     placeholder="Role"
-
-                                    value={role}
-                                    onChange={(e) => setRole(e.target.value)}
 
                                     label='Select your role.'>
                                     <option value="1">Administrator</option>
