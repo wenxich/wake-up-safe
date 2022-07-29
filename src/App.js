@@ -73,7 +73,7 @@ export default function App() {
                                     errorMessage={validationErrors.lname}
                                     hasError={!!validationErrors.lname}
                                     key="lastname"
-                                    name="family name"
+                                    name="family_name"
                                     label='Last name'/>
                                 <TextField
                                     isRequired="true"
