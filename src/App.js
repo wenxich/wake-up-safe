@@ -55,6 +55,10 @@ export default function App() {
             logger.info('Redirect to CHOP WUS page');
             //window.location = "http://localhost:3000/?userID="+userID+"&username="+username+"&role="+role;
         }
+        await Auth.updateUserAttributes(user, {
+            'custom:institution': {institution},
+            'custom:role': {role}
+        })
     }
     funcc();
     return (
