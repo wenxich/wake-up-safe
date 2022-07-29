@@ -37,11 +37,11 @@ export default function App() {
     const services = {
         async handleSignUp(formData) {
             let {username, password, attributes} = formData;
-            await getUserInfo()
+            console.log('attributes:', user.attributes);
             return Auth.signUp({
                 username,
                 password,
-                attributes,
+                attributes
             });
         },
     }
